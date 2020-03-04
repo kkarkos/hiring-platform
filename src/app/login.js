@@ -28,21 +28,18 @@ function Login() {
   //   setCookie: false,
   // });
 
-  // const data = {
-  //   app_metadata: {
-  //     roles: ['investigator', 'photographer'],
-  //   },
-  //   user_metadata: {
-  //     full_name: 'Jessica Jones',
-  //     email: 'jessica@aliasinvestigations.com',
-  //   },
-  // };
+  const data = {
+    app_metadata: {
+      roles: ['investigator', 'photographer'],
+    },
+    user_metadata: {
+      full_name: 'Jessica Jones',
+      email: 'jessica@aliasinvestigations.com',
+    },
+  };
 
   const createUser = () => {
-    console.log('signupUser', signupUser);
-    signupUser('kkarkos@truekings.de', '456852', {
-      app_metadata: { roles: ['admin'] },
-    })
+    signupUser('kkarkoss@truekings.de', '456852')
       .then(response => console.log('Success!Check your inbox! ', response))
       .catch(error => console.log("It 's an error", error));
     // auth
