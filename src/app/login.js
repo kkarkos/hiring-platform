@@ -35,7 +35,9 @@ function Login() {
   // };
 
   const createUser = () => {
-    signupUser('keyzas@keyza.de', '456852')
+    signupUser('keyza@keyza.de', '456852', {
+      app_metadata: { roles: ['admin'] },
+    })
       .then(response => console.log('Success!Check your inbox! ', response))
       .catch(error => console.log("It 's an error", error));
     // auth
