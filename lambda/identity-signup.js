@@ -1,6 +1,9 @@
 module.exports.handler = (event, context, callback) => {
+  // hook called after user submit
   const data = JSON.parse(event.body);
   const { user } = data;
+
+  console.log('data', data);
 
   const responseBody = {
     app_metadata: {
