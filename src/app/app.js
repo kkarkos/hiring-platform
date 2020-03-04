@@ -7,19 +7,24 @@ import Main from './main';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './login';
 
+import { IdentityContextProvider } from 'react-netlify-identity';
+const url = 'https://peaceful-shirley-4f90d8.netlify.com';
+
 const App = () => {
   return (
-    <Layout>
-      <NavBar />
-      <Router>
-        <PrivateRoute path="/app/profile" component={Profile} />
-        <PrivateRoute path="/app/another" component={Profile} />
-        <PublicRoute path="/app">
-          <PrivateRoute path="/" component={Main} />
-          <Login path="/login" />
-        </PublicRoute>
-      </Router>
-    </Layout>
+    <IdentityContextProvider url={url}>
+      <Layout>
+        <NavBar />
+        <Router>
+          <PrivateRoute path="/app/profile" component={Profile} />
+          <PrivateRoute path="/app/another" component={Profile} />
+          <PublicRoute path="/app">
+            <PrivateRoute path="/" component={Main} />
+            <Login path="/login" />
+          </PublicRoute>
+        </Router>
+      </Layout>
+    </IdentityContextProvider>
   );
 };
 function PublicRoute(props) {
