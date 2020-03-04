@@ -1,4 +1,4 @@
-export function handler(event, context, callback) {
+module.exports.handler = (event, context, callback) => {
   const payload = JSON.parse(event.body);
   const user = payload.user;
 
@@ -10,4 +10,4 @@ export function handler(event, context, callback) {
     statusCode: 200,
     body: user,
   });
-}
+};
