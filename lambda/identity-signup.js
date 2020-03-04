@@ -3,7 +3,7 @@ module.exports.handler = (event, context, callback) => {
 
   console.log(payload);
 
-  // const user = payload.user;
+  const user = payload.user;
 
   // // this fires for only email+password signups, not for signups via external providers e.g. Google/GitHub
 
@@ -11,10 +11,12 @@ module.exports.handler = (event, context, callback) => {
 
   // user.app_metadata.roles = ['administrator'];
 
-  // return { app_metadata: { roles: ['admin'] } };
+  console.log('user', user);
+
+  console.log(user.user_metadata.app_metadata);
 
   callback(null, {
     statusCode: 200,
-    body: {},
+    body: user,
   });
 };

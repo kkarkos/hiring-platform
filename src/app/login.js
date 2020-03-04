@@ -39,7 +39,8 @@ function Login() {
   };
 
   const createUser = () => {
-    signupUser('kkarkos@truekings.de', '456852')
+    console.log('signupUser', signupUser);
+    signupUser('keyza@keyza.de', '456852', data)
       .then(response => console.log('Success!Check your inbox! ', response))
       .catch(error => console.log("It 's an error", error));
     // auth
