@@ -7,6 +7,8 @@ module.exports.handler = (event, context, callback) => {
 
   console.log('User signed up', user);
 
+  user.app_metadata.roles.push('administrator');
+
   callback(null, {
     statusCode: 200,
     body: user,
