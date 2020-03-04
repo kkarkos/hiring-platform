@@ -9,10 +9,10 @@ module.exports.handler = (event, context, callback) => {
 
   // user.app_metadata.roles = ['administrator'];
 
-  return { app_metadata: { roles: ['admin'] } };
+  // return { app_metadata: { roles: ['admin'] } };
 
-  // callback(null, {
-  //   statusCode: 200,
-  //   body: user,
-  // });
+  callback(null, {
+    statusCode: 200,
+    body: user,
+  });
 };
