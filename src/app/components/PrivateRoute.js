@@ -1,9 +1,10 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useIdentityContext } from 'react-netlify-identity';
+
+import useIdentity from '../../hooks/useIdentity';
 
 function PrivateRoute(props) {
-  const { isLoggedIn } = useIdentityContext();
+  const { isLoggedIn } = useIdentity();
   const { component: Component, location, ...rest } = props;
 
   React.useEffect(() => {

@@ -1,11 +1,10 @@
 import React from 'react';
-
-import { useIdentityContext } from 'react-netlify-identity';
+import useIdentity from '../../hooks/useIdentity';
 
 function Main() {
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
-  const { user } = useIdentityContext();
+  const { user } = useIdentity();
   const [err, setErr] = React.useState('');
 
   const handleClick = e => {
@@ -24,11 +23,13 @@ function Main() {
         setData(json);
       })
       .catch(err => {
-        if (window.location.origin === 'http://localhost:8000')
+        if (window.location.origin === 'http://localhost:8000') {
           setErr(
             'your origin is "http://localhost:8000". You are likely not using Netlify Dev so the functions server isnt running. Please read the docs, use Netlify Dev, and go to http://localhost:8888'
           );
-        else setErr(err);
+        } else {
+          setErr(err);
+        }
         throw err;
       });
   };

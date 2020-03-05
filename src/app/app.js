@@ -1,11 +1,12 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import NavBar from './components/NavBar';
-import Profile from './profile';
-import Main from './main';
+import Profile from './routes/Profile';
+import Main from './routes/Main';
 import PrivateRoute from './components/PrivateRoute';
-import Login from './login';
+import Login from './routes/Login';
+import SignUp from './routes/SignUp';
 
 import { IdentityContextProvider } from 'react-netlify-identity';
 const url = 'https://peaceful-shirley-4f90d8.netlify.com';
@@ -21,6 +22,7 @@ const App = () => {
           <PublicRoute path="/app">
             <PrivateRoute path="/" component={Main} />
             <Login path="/login" />
+            <SignUp path="/signup" />
           </PublicRoute>
         </Router>
       </Layout>

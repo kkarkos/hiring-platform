@@ -1,30 +1,30 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/Layout';
+import Image from '../components/Image';
+import SEO from '../components/Seo';
 
 class IndexPage extends React.Component {
-  state = { loading: false, msg: null }
+  state = { loading: false, msg: null };
   handleClick = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/token-hider")
+    this.setState({ loading: true });
+    fetch('/.netlify/functions/token-hider')
       .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.message }))
-  }
+      .then(json => this.setState({ loading: false, msg: json.message }));
+  };
 
   render() {
-    const { loading, msg } = this.state
+    const { loading, msg } = this.state;
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
           <div>
@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
             <ul>
               <li>
                 This site has statically generated marketing pages like this one
-                and <Link to="/page-2/">page 2.</Link>{" "}
+                and <Link to="/page-2/">page 2.</Link>{' '}
               </li>
               <li>
                 It also has a dynamically generated clientside app guarded by
@@ -44,18 +44,18 @@ class IndexPage extends React.Component {
                   <li>
                     <Link to="/app/">
                       <b>Go to App (with Netlify Identity)</b>
-                    </Link>{" "}
+                    </Link>{' '}
                   </li>
                 </ul>
               </li>
               <li>
-                You can{" "}
+                You can{' '}
                 <a href="https://github.com/sw-yx/jamstack-hackathon-starter">
                   view source here
                 </a>
               </li>
               <li>
-                or see{" "}
+                or see{' '}
                 <a href="https://youtu.be/bueXJInQt2c">
                   the Youtube walkthrough
                 </a>
@@ -73,15 +73,15 @@ class IndexPage extends React.Component {
             <hr />
             <p>
               You can still access Netlify functions even on static "marketing
-              pages". This function is available at{" "}
+              pages". This function is available at{' '}
               <a href="/.netlify/functions/token-hider">
                 <code>/.netlify/functions/token-hider</code>
-              </a>{" "}
+              </a>{' '}
               and it uses an API_SECRET environment variable that is hidden from
               the frontend!
             </p>
             <button onClick={this.handleClick}>
-              {loading ? "Loading..." : "Call Lambda Function"}
+              {loading ? 'Loading...' : 'Call Lambda Function'}
             </button>
             <br />
 
@@ -93,20 +93,20 @@ class IndexPage extends React.Component {
           </div>
           <div
             style={{
-              borderLeft: "brown",
-              borderLeftStyle: "dashed",
-              paddingLeft: "3rem",
+              borderLeft: 'brown',
+              borderLeftStyle: 'dashed',
+              paddingLeft: '3rem',
             }}
           >
             <p>Now go build something great.</p>
-            <div style={{ maxWidth: "300px", marginBottom: "1.45rem" }}>
+            <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
               <Image />
             </div>
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default IndexPage
+export default IndexPage;

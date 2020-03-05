@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, navigate } from 'gatsby';
 
-import { useIdentityContext } from 'react-netlify-identity-widget';
+import useIdentity from '../../hooks/useIdentity';
 
 export default () => {
-  const { user, isLoggedIn, logoutUser } = useIdentityContext();
+  const { user, isLoggedIn, logoutUser } = useIdentity();
   let message = isLoggedIn
     ? `Hello, ${user.user_metadata && user.user_metadata.full_name}`
     : 'You are not logged in';
