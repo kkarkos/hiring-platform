@@ -1,5 +1,3 @@
-const netlifyInstance = 'https://peaceful-shirley-4f90d8.netlify.com';
-
 module.exports = {
   siteMetadata: {
     title: 'Hiring Platform',
@@ -12,12 +10,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-identity`,
-      options: {
-        url: netlifyInstance,
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,
